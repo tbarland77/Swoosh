@@ -3,8 +3,8 @@ package com.programmerz.timothy.swoosh.Controller
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.programmerz.timothy.swoosh.R
-import com.programmerz.timothy.swoosh.Utils.EXTRA_LEAGUE
-import com.programmerz.timothy.swoosh.Utils.EXTRA_SKILL
+import com.programmerz.timothy.swoosh.Utils.EXTRA_PLAYER
+import com.programmerz.timothy.swoosh.model.Player
 import kotlinx.android.synthetic.main.activity_finish.*
 
 class FinishActivity : AppCompatActivity() {
@@ -13,9 +13,8 @@ class FinishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
 
-        val league = intent.getStringExtra(EXTRA_LEAGUE)
-        val skill = intent.getStringExtra(EXTRA_SKILL)
+        val player = intent.getParcelableExtra<Player>(EXTRA_PLAYER)
 
-        searchLeaguesText.text = "Looking for $league $skill"
+        searchLeaguesText.text = "Looking for ${player.league} ${player.skill}"
     }
 }
